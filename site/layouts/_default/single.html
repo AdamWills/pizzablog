@@ -1,0 +1,28 @@
+{{ define "main" }}
+
+<article class="article" id="content">
+  <h1 class="article--heading">{{.Title}}</h1>
+
+  <ul class="article--meta">
+    {{ with .Params.showdate }}
+    <li><strong>Published:</strong> {{ .Date.Format "Jan 2, 2006" }}</li>
+    {{ end }}
+    {{ with .Params.pizzastyle }}
+    <li><strong>Style:</strong> {{.}}</li>
+    {{ end }}
+    {{ with .Params.pizzalocation }}
+    <li><strong>Location:</strong> {{.Params.pizzalocation}}</li>
+    {{ end }}
+    {{ with .Params.pizzayears }}
+    <li><strong>Years in Business:</strong> {{.Params.pizzayears}}</li>
+    {{ end }}
+    {{ with .Params.pizzawebsite }}
+    <li><strong>Website:</strong> <a href="{{.Params.pizzawebsite}}">{{.Params.pizzawebsite}}</a></li>
+    {{ end }}
+  </ul>
+
+  {{ .Content }}
+
+</article>
+
+{{end}}

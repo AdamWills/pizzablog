@@ -1,0 +1,15 @@
+{{ define "main" }}
+
+  {{ range .Data.Pages }}
+    <article class="article--summary">
+      <h2 class="summary--summary-title"><a href="{{.Permalink}}">{{.Title}}</a></h2>
+      {{ .Summary }}
+
+      {{ if .Truncated }}
+      <p><a href="{{ .RelPermalink }}" class="article--read-more">Read More…</a></p>
+      {{ end }}
+    </article>
+
+    {{ end }}
+
+{{end}}
